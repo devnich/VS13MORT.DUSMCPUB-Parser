@@ -42,3 +42,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 VS13MORT Test Parser.py
+
+# Derek's gitignore additions
+*.DUSMCPUB
+*.~lock.*
