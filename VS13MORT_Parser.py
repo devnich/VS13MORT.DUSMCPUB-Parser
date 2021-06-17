@@ -134,6 +134,7 @@ with open(infile_name, 'r') as infile, open(outfile_name, 'w', newline='') as ou
     indices = fields.values()
 
     for row_num, line in enumerate(infile):
+
         # Generate list of line slices (this is a "list comprehension")
         out_list = [line[i[0]:i[1]].strip() for i in indices]
         writer.writerow(out_list)
