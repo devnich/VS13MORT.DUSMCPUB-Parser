@@ -46,3 +46,4 @@ VS13MORT Test Parser.py
 # Derek's gitignore additions
 *.DUSMCPUB
 *.~lock.*
+*.csv
