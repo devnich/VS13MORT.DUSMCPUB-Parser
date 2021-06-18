@@ -5,7 +5,7 @@
 #   http://www.cdc.gov/nchs/data/dvs/Record_Layout_2013.pdf
 #
 # Originally derived from https://github.com/tommaho/VS13MORT.DUSMCPUB-Parser
-
+#
 # Directions
 #  1. Have Python installed.
 #  2. Get & unzip mortality file
@@ -113,8 +113,8 @@ fields = collections.OrderedDict([('Resident_Status', (19, 20)),
                                   ('Hispanic_Origin', (483, 486)),
                                   ('Hispanic_Origin_Recode', (487, 488))])
 
-# Sanity check for field positions; crash the program if they don't make sense
-for key, val in fields.items():
+# Check that the field indices are defined consistently
+for val in fields.values():
     assert len(val) == 2
     assert val[0] <= val[1]
 
@@ -135,7 +135,8 @@ with open(infile_name, 'r') as infile, open(outfile_name, 'w', newline='') as ou
 
     for row_num, line in enumerate(infile):
 
-        # Generate list of line slices (this is a "list comprehension")
+        # Generate list of line slices (read the documentation on list
+        # comprehensions if you need more info about how this works)
         out_list = [line[i[0]:i[1]].strip() for i in indices]
         writer.writerow(out_list)
 
